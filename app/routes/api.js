@@ -174,6 +174,13 @@ module.exports = function(app, express) {
         if (err) { res.send(err); }
         res.json({ message: 'Report created!' });
       });
+    })
+
+    .delete(function(req, res) {
+      Killing.remove({}, function(err) {
+        if (err) { return res.send(err); }
+        res.json({ message: "All Killings deleted! "});
+      });
     });
 
   apiRouter.route('/killing/:id')
