@@ -1,4 +1,5 @@
 var mongoose = require('mongoose'),
+    moment = require('moment'),
     Schema = mongoose.Schema;
 
 var KillingSchema = new Schema({
@@ -8,8 +9,15 @@ var KillingSchema = new Schema({
   race              : String,
   name              : String,
   age               : Number,
+  source_of_death   : String,
   kbp_link          : String,
   news_link         : String
 });
+
+KillingSchema.virtual('$reported_date').get(function() {
+    return moment(this.reported_date).format('MMMM Do, YYYY');
+});
+
+KillingSchema.set('toJSON', { getters: true, virtuals: true });
 
 module.exports = mongoose.model('Killing', KillingSchema);

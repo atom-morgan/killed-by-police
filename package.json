@@ -24,6 +24,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.4.1",
     "jsonwebtoken": "^4.0.0",
+    "moment": "^2.10.6",
     "mongoose": "^4.1.7",
     "morgan": "^1.5.1"
   },
