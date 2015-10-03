@@ -22,6 +22,7 @@
       <th>Race</th>
       <th>Name</th>
       <th>Age</th>
+      <th>Source of Death</th>
       <th>KilledByPolice Link</th>
       <th>News Link</th>
       <th class="col-sm-2">Actions</th>
@@ -32,12 +33,13 @@
     <!-- LOOP OVER THE USERS -->
     <tr ng-repeat="report in killing.killings">
       <td>{{report._id}}</td>
-      <td>{{report.reported_date}}</td>
+      <td>{{report.$reported_date}}</td>
       <td>{{report.geo_state}}</td>
       <td>{{report.gender}}</td>
       <td>{{report.race}}</td>
       <td>{{report.name}}</td>
       <td>{{report.age}}</td>
+      <td>{{report.source_of_death}}</td>
       <td><a ng-href="http://{{report.kbp_link}}" target="_blank">Source</a></td>
       <td><a ng-href="http://{{report.news_link}}" target="_blank">Source</a></td>
       <td class="col-sm-2">
