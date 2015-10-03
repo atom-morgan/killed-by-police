@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>User CRM</title>
+
+    <!--FOR ANGULAR ROUTING-->
+    <base href="/">
+
+    <!-- CSS -->
+    <!--<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/paper/bootstrap.min.css">-->
+    <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.min.css">
+
+    <!-- JS -->
+    <script src="assets/libs/angular/angular.min.js"></script>
+    <script src="assets/libs/angular-route/angular-route.min.js"></script>
+    <script src="assets/libs/angular-animate/angular-animate.min.js"></script>
+    <script src="assets/libs/angular-datetime/dist/datetime.js"></script>
+
+    <!-- controllers -->
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/controllers/killingCtrl.js"></script>
+
+    <!-- services -->
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/userService.js"></script>
+    <script src="app/services/killingService.js"></script>
+    <script src="app/d3js/d3Service.js"></script>
+
+    <!-- directives -->
+    <script src="app/d3js/d3-bar-chart.js"></script>
+
+    <!-- main Angular app files -->
+    <script src="app/app.routes.js"></script>
+    <script src="app/app.js"></script>
+    <!--<script src="app/dist/app.js"></script>-->
+  </head>
+
+  <body ng-app="userApp" ng-controller="mainController as main">
+
+    <header>
+      <div class="navbar navbar-inverse" ng-if="main.loggedIn">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand"><span class="glyphicon glyphicon-eye-open text-danger"></span> Killed By Police</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="/users"><span class="glyphicon glyphicon-user"></span> Users</a></li>
+            <li><a href="/killings"><span class="glyphicon glyphicon-user"></span> Killings</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-if="!main.loggedIn"><a href="/login">Login</a></li>
+            <li ng-if="main.loggedIn" class="navbar-text">Hello {{main.user.username}}!</li>
+            <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div ng-view></div>
+    </main>
+
+  </body>
+</html>

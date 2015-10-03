@@ -1,0 +1,51 @@
+<div class="page-header">
+  <h1>
+    Killed By Police
+    <a href="/killing/new" class="btn btn-default">
+      <span class="glyphicon glyphicon-plus"></span>New Report
+    </a>
+  </h1>
+</div>
+
+<div class="jumbotron text-center" ng-show="killing.processing">
+  <span class="glyphicon glyphicon-repeat spinner"></span>
+  <p>Loading Reports...</p>
+</div>
+
+<table class="table table-bordered table-striped" ng-show="killing.killings">
+  <thead>
+    <tr>
+      <th>_id</th>
+      <th>Date</th>
+      <th>State</th>
+      <th>Gender</th>
+      <th>Race</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>KilledByPolice Link</th>
+      <th>News Link</th>
+      <th class="col-sm-2">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <!-- LOOP OVER THE USERS -->
+    <tr ng-repeat="report in killing.killings">
+      <td>{{report._id}}</td>
+      <td>{{report.reported_date}}</td>
+      <td>{{report.geo_state}}</td>
+      <td>{{report.gender}}</td>
+      <td>{{report.race}}</td>
+      <td>{{report.name}}</td>
+      <td>{{report.age}}</td>
+      <td><a ng-href="http://{{report.kbp_link}}" target="_blank">Source</a></td>
+      <td><a ng-href="http://{{report.news_link}}" target="_blank">Source</a></td>
+      <td class="col-sm-2">
+        <a ng-href="/killing/{{report._id}}" class="btn btn-danger">Edit</a>
+        <a ng-href="#" ng-click="killing.deleteUser(report._id)" class="btn btn-primary">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!--<div d3-bars data="killing.d3data" on-click="killing.d3OnClick(item)" bar-height="20" bar-padding="5"></div>-->

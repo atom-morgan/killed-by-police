@@ -1,0 +1,13 @@
+<div class="jumbotron text-center">
+  <h1>Home Page</h1>
+
+  <div ng-if="!main.loggedIn">
+    <p>Login to manage your users.</p>
+    <a href="/login" class="btn btn-primary">Login</a>
+  </div>
+
+  <div ng-if="main.loggedIn">
+    <p>Manage your users.</p>
+    <a href="/users" class="btn btn-primary">View Users</a>
+  </div>
+</div>
