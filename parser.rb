@@ -78,4 +78,4 @@ File.open("./json-data/" + newFileName + ".json", "w") do |f|
   f.write(myData)
 end
 
-puts "New created: json-data/" + newFileName + ".json"
+puts "JSON file created: json-data/" + newFileName + ".json"
