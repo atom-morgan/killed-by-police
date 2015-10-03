@@ -166,6 +166,7 @@ module.exports = function(app, express) {
       killing.race            = req.body.race;
       killing.name            = req.body.name;
       killing.age             = req.body.age;
+      killing.source_of_death = req.body.source_of_death;
       killing.kbp_link        = req.body.kbp_link;
       killing.news_link       = req.body.news_link;
 
@@ -191,6 +192,7 @@ module.exports = function(app, express) {
         killing.race = req.body.race;
         killing.name = req.body.name;
         killing.age = req.body.age;
+        killing.source_of_death = req.body.source_of_death;
         killing.kbp_link = req.body.kbp_link;
         killing.news_link = req.body.news_link;
 
