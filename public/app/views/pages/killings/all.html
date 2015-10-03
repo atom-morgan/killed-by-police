@@ -31,7 +31,7 @@
 
   <tbody>
     <!-- LOOP OVER THE USERS -->
-    <tr ng-repeat="report in killing.killings">
+    <tr ng-repeat="report in killing.killings | orderBy:'-reported_date'">
       <td>{{report._id}}</td>
       <td>{{report.$reported_date}}</td>
       <td>{{report.geo_state}}</td>
