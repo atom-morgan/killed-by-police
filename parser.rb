@@ -13,11 +13,11 @@ data.map do |item|
   myHash = Hash.new
   item.map do |key, value|
     if (key.to_s == 'date')
-      myHash[key] = value.gsub(/([(].*[)])/, '').strip
+      myHash[:reported_date] = value.gsub(/([(].*[)])/, '').strip
     end
 
     if (key.to_s == 'state')
-      myHash[:state] = value.to_s
+      myHash[:geo_state] = value.to_s
     end
 
     if (key.to_s == 'gender/race')
