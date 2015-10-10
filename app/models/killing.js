@@ -18,6 +18,10 @@ KillingSchema.virtual('$reported_date').get(function() {
     return moment(this.reported_date).format('MMMM Do, YYYY');
 });
 
+KillingSchema.virtual('$reported_month').get(function() {
+    return moment(this.reported_date).format('MMMM');
+});
+
 KillingSchema.set('toJSON', { getters: true, virtuals: true });
 
 module.exports = mongoose.model('Killing', KillingSchema);
