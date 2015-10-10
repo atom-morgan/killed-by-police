@@ -7,12 +7,12 @@
   </h1>
 </div>
 
-<div class="jumbotron text-center" ng-show="killing.processing">
+<!-- <div class="jumbotron text-center" ng-show="killing.processing">
   <span class="glyphicon glyphicon-repeat spinner"></span>
   <p>Loading Reports...</p>
-</div>
+</div> -->
 
-<table class="table table-bordered table-striped" ng-show="killing.killings">
+<!-- <table class="table table-bordered table-striped" ng-show="killing.killings">
   <thead>
     <tr>
       <th>_id</th>
@@ -30,7 +30,6 @@
   </thead>
 
   <tbody>
-    <!-- LOOP OVER THE USERS -->
     <tr ng-repeat="report in killing.killings | orderBy:'-reported_date'">
       <td>{{report._id}}</td>
       <td>{{report.$reported_date}}</td>
@@ -48,6 +47,8 @@
       </td>
     </tr>
   </tbody>
-</table>
+</table> -->
 
-<!--<div d3-bars data="killing.d3data" on-click="killing.d3OnClick(item)" bar-height="20" bar-padding="5"></div>-->
+<!-- <div d3-bars data="killing.d3data" on-click="killing.d3OnClick(item)" bar-height="20" bar-padding="5"></div> -->
+<!-- <div d3-horizontal-bars data="killing.monthData" on-click="killing.d3OnClick(item)" bar-height="20" bar-padding="5"></div> -->
+<div d3-vertical-bars data="killing.d3DataByMonth" on-click="killing.d3OnClick(item)"></div>

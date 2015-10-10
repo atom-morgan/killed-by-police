@@ -3,7 +3,7 @@
 ////
 
 angular.module('d3.directives', ['d3'])
-.directive('d3Bars', function(d3Service) {
+.directive('d3HorizontalBars', function(d3Service) {
   return {
     restrict: 'EA',
     scope: {
@@ -48,7 +48,7 @@ angular.module('d3.directives', ['d3'])
             // our xScale
             xScale = d3.scale.linear()
               .domain([0, d3.max(data, function(d) {
-                return d.score;
+                return d.killings;
               })])
               .range([0, width]);
 
@@ -65,12 +65,12 @@ angular.module('d3.directives', ['d3'])
             .attr('y', function(d,i) {
               return i * (barHeight + barPadding);
             })
-            .attr('fill', function(d) { return color(d.score); })
+            .attr('fill', function(d) { return color(d.killings); })
             .on('click', function(d, i) { return scope.onClick({item: d}); })
             .transition()
               .duration(1000)
               .attr('width', function(d) {
-                return xScale(d.score);
+                return xScale(d.killings);
               });
         svg.selectAll('text')
           .data(data)
@@ -82,7 +82,7 @@ angular.module('d3.directives', ['d3'])
             })
             .attr('x', 15)
             .text(function(d) {
-              return d.name;
+              return d.month + " - " + d.killings;
             });
       };//render
 
