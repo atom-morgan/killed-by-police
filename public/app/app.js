@@ -9,7 +9,8 @@ angular.module('userApp', [
   'killingService',
   'd3',
   'd3.directives',
-  'datetime'
+  'datetime',
+  'ngLodash'
 ])
 
 .config(function($httpProvider) {
