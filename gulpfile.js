@@ -8,6 +8,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var ngAnnotate = require('gulp-ng-annotate');
 var nodemon = require('gulp-nodemon');
+var jade = require('gulp-jade');
 
 //define a task called css
 gulp.task('css', function() {
@@ -23,6 +24,16 @@ gulp.task('js', function() {
   return gulp.src(['server.js', 'public/app/*.js', 'public/app/**/*.js'])
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
+});
+
+gulp.task('templates', function() {
+  return gulp.src(['public/app/views/*.jade',
+                   'public/app/views/**/*.jade',
+                   'public/app/views/**/**/*.jade'])
+    .pipe(jade({
+      pretty: true
+    }))
+    .pipe(gulp.dest('public/dist'));
 });
 
 //gulp.task('scripts', function() {

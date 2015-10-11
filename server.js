@@ -37,7 +37,8 @@ app.use('/api', apiRoutes);
 
 //CATCHALL ROUTE - SENDS USERS TO FRONTEND
 app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
+  //res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
+  res.sendFile(path.join(__dirname + '/public/dist/index.html'));
 });
 
 //START THE SERVER

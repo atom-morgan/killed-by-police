@@ -12,7 +12,8 @@ angular.module('app.routes', ['ngRoute'])
     })
 
     .when('/users', {
-      templateUrl: 'app/views/pages/users/all.html',
+      // templateUrl: 'app/views/pages/users/all.html',
+      templateUrl: 'dist/users/all.html',
       controller: 'userController',
       controllerAs: 'user'
     })

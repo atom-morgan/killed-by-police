@@ -1,0 +1,70 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Killed By Police Jade
+
+    base(href="/")
+
+    meta(name='description', content='')
+    //meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    //link(rel='stylesheet', href='//maxcdn.bootstrapcdn.com/bootswatch/3.3.1/paper/bootstrap.min.css')
+    link(rel='stylesheet', href='assets/libs/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='assets/css/style.min.css')
+
+    // JS
+    script(src='assets/libs/angular/angular.min.js')
+    script(src="assets/libs/angular-route/angular-route.min.js")
+    script(src="assets/libs/angular-animate/angular-animate.min.js")
+    script(src="assets/libs/angular-datetime/dist/datetime.js")
+    script(src="assets/libs/ng-lodash/build/ng-lodash.js")
+
+    // Controllers
+    script(src="app/controllers/mainCtrl.js")
+    script(src="app/controllers/userCtrl.js")
+    script(src="app/controllers/killingCtrl.js")
+
+    // Services
+    script(src="app/services/authService.js")
+    script(src="app/services/userService.js")
+    script(src="app/services/killingService.js")
+    script(src="app/d3js/d3Service.js")
+
+    // Directives
+    //script(src="app/d3js/d3-horizontal-bar-chart.js")
+    script(src="app/d3js/d3-vertical-bar-chart.js")
+    //script(src="app/d3js/d3-bar-chart.js")
+
+    // Main Angular app files
+    script(src="app/app.routes.js")
+    script(src="app/app.js")
+    //script(src="app/dist/app.js")
+
+  body(ng-app="userApp" ng-controller="mainController as main")
+    header
+      .navbar.navbar-inverse(ng-if="main.loggedIn")
+        .container
+          .navbar-header
+            a.navbar-brand(href="/")
+              span.glyphicon.glyphicon-eye-open.text-danger
+              |  Killed By Police
+          ul.nav.navbar-nav
+            li
+              a(href="/users")
+                span.glyphicon.glyphicon-user
+                |  Users
+            li
+              a(href="/killings")
+                span.glyphicon.glyphicon-user
+                |  Killings
+          ul.nav.navbar-nav.navbar-right
+            li(ng-if="!main.loggedIn")
+              a(href="/login") Login
+            li.navbar-text(ng-if="main.loggedIn") Hello {{main.user.username}}
+            li(ng-if="main.loggedIn")
+              a(href="#" ng-click="main.doLogout()") Logout
+
+    main.container
+      div(ng-view)

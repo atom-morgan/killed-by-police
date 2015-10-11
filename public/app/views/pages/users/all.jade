@@ -1,0 +1,26 @@
+.page-header
+  h1 Users 
+    a.btn.btn-default(href="/users/create")
+      span.glyphicon.glyphicon-plus
+      | New User
+
+.jumbotron.text-center(ng-show="user.processing")
+  span.glyphicon.glyphicon-repeat.spinner
+  p Loading Users...
+
+table.table.table-bordered.table-striped(ng-show="user.users")
+  thead
+    tr
+      th _id
+      th Name
+      th Username
+      th.col-sm-2
+
+  tbody
+    tr(ng-repeat="person in user.users")
+      td {{person._id}}
+      td {{person.name}}
+      td {{person.username}}
+      td.col-sm-2
+        a.btn.btn-danger(ng-href="/users/{{person._id}}") Edit
+        a.btn.btn-primary(ng-href="#" ng-click="user.deleteUser(person._id)") Delete

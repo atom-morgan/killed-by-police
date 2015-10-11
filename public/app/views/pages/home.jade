@@ -1,0 +1,10 @@
+.jumbotron.text-center
+  h1 Home Page
+
+  div(ng-if="!main.loggedIn")
+    p Login to manage your users.
+    a.btn.btn-primary(href="/login")
+
+  div(ng-if="main.loggedIn")
+    p Manage your users.
+    a.btn.btn-primary(href="/users")
