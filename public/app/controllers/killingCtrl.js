@@ -1,24 +1,11 @@
-angular.module('killingCtrl', ['killingService', 'datetime', 'ngLodash'])
-.controller('killingsController', function(Killing, $scope, lodash) {
+angular.module('killingCtrl', ['killingService', 'd3DateService', 'datetime', 'ngLodash'])
+.controller('killingsController', function(Killing, $scope, lodash, d3date) {
   var vm = this;
 
   vm.processing = true;
 
-  vm.d3DataByMonth = [
-    { "month": "January", "killings": 0 },
-    { "month": "February", "killings": 0 },
-    { "month": "March", "killings": 0 },
-    { "month": "April", "killings": 0 },
-    { "month": "May", "killings": 0 },
-    { "month": "June", "killings": 0 },
-    { "month": "July", "killings": 0 },
-    { "month": "August", "killings": 0 },
-    { "month": "September", "killings": 0 },
-    { "month": "October", "killings": 0 },
-    { "month": "November", "killings": 0 },
-    { "month": "December", "killings": 0 }
-  ];
-
+  // using d3Date service we can get the dates, we can set the dates and format dates in DD-MM-YYYY or MM-DD-YYYY formats
+  vm.d3DataByMonth = d3Date.getAllDates();
   vm.d3OnClick = function(item) {
     console.log('clicked item ', item);
     $scope.$apply(function() {
